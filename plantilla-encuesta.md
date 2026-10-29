@@ -101,7 +101,7 @@ Se espera que las respuestas se carguen como texto (object en pandas). Sin embar
 *Escribe `scripts/verificacion_encuesta.py` (o `.R`): debe cargar `plantillas/encuesta_respuestas.csv` y reportar los tipos de cada columna, los datos faltantes por columna y la distribución de `satisfaccion_general` y `recomendaria`. Incluye la salida y responde:*
 
 
-```
+``` python
 import pandas as pd
 
 archivo = "plantillas/encuesta_respuestas.csv"
