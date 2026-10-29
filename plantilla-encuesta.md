@@ -12,8 +12,6 @@
 
 Completa cada sección. Usa commits por sección; la historia del repositorio se revisa.
 
-> **Formato del entregable:** exporta esta plantilla completada a PDF, con el enlace de tu fork en la carátula, y guarda el PDF en `informes/` del fork. Entrega el PDF y el enlace del fork en el aula virtual.
-
 ## 1. Objetivo de la encuesta
 
 Conocer las opiniones y expectativas de los consumidores adultos sobre la variedad y disponibilidad de productos en los supermercados, tomando a Tía como caso empresarial. Con esta información, se busca identificar posibles mejoras en el surtido y la reposición de productos que ayuden a orientar las decisiones de abastecimiento de la gerencia.
@@ -52,28 +50,33 @@ muestra = df.groupby("ciudad", group_keys=False).apply(
 print(muestra)
 ```
 
-**Resultado esperado:** Se mostrará una tabla con los cinco integrantes y una meta de cinco respuestas para cada uno, lo que suma un total de 25 respuestas previstas. Este resultado corresponde a la planificación del equipo y no significa que los participantes ya hayan sido seleccionados o que las respuestas se hayan recopilado.
+**Resultado esperado:** Se mostrará una tabla con los cinco integrantes y una meta de cinco 
+respuestas para cada uno, lo que suma un total de 25 respuestas previstas. Este resultado 
+corresponde a la planificación del equipo y no significa que los participantes ya hayan sido 
+seleccionados o que las respuestas se hayan recopilado.
 
-**Justificación del método:** El muestreo estratificado garantiza una representación proporcional e imparcial de los clientes de Quito, Cuenca y Atuntaqui, eliminando los sesgos de selección del muestreo por conveniencia y asegurando la validez estadística de las inferencias obtenidas para el proyecto.
-Aun así, se deberá registrar cómo se contactó a los participantes y tener en cuenta que los resultados pueden verse afectados por el sesgo de selección o porque algunas personas decidan no responder. Estas limitaciones se considerarán al interpretar los resultados.
+**Justificación del método:** El muestreo por conveniencia estructurado por estratos (ciudades) 
+permite al equipo recolectar las respuestas de manera factible. Sin embargo, no elimina el sesgo 
+de selección, por lo que los resultados no serán generalizables estadísticamente a toda la 
+población y solo se utilizarán con fines descriptivos.
 
 ## 4. Cuestionario (5–10 preguntas)
 
 Las preguntas buscan conocer los hábitos de compra de los participantes y sus opiniones sobre la variedad y disponibilidad de productos. 
 
 
-| #  | Pregunta                                                                                                                                                                                     | Tipo de variable   | Dtype al cargar | Opciones / escala                                                                                                       |
-|----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| 1  | ¿Tiene usted 18 años o más?                                                                                                                                                                  | Categórica binaria | `object`        | Sí; No                                                                                                                  |
-| 2  | ¿Con qué frecuencia compra en supermercados?                                                                                                                                                 | Categórica ordinal | `object`        | Varias veces por semana; Una vez por semana; De dos a tres veces al mes; Una vez al mes; Menos de una vez al mes        |
-| 3  | ¿En qué ciudad reside actualmente?                                                                                                                                                           | Categórica nominal | `object`        | Quito; Guayaquil; Cuenca                                                                                                |
-| 4  | ¿Qué tan importante es para usted que un supermercado ofrezca una amplia variedad de productos?                                                                                              | Categórica ordinal | `object`        | Nada importante; Poco importante; Moderadamente importante; Importante; Muy importante                                  |
-| 5  | ¿Qué tan importante es para usted que los productos que busca estén disponibles cuando visita un supermercado?                                                                               | Categórica ordinal | `object`        | Nada importante; Poco importante; Moderadamente importante; Importante; Muy importante                                  |
-| 6  | ¿Con qué frecuencia encuentra disponibles los productos que busca en los supermercados que visita habitualmente?                                                                             | Categórica ordinal | `object`        | Nunca; Casi nunca; Algunas veces; Casi siempre; Siempre                                                                 |
-| 7  | ¿En qué categoría de productos encuentra con mayor frecuencia faltantes en los supermercados que visita?                                                                                     | Categórica nominal | `object`        | Alimentos frescos; Productos empacados; Bebidas; Limpieza del hogar; Cuidado personal; Otra; No he encontrado faltantes |
-| 8  | Si Tía ofreciera una amplia variedad de productos, ¿qué tan satisfecho estaría con esa variedad?                                                                                             | Categórica ordinal | `object`        | Muy insatisfecho; Insatisfecho; Ni satisfecho ni insatisfecho; Satisfecho; Muy satisfecho                               |
-| 9  | Si Tía mantuviera disponibles los productos que busca, ¿qué tan satisfecho estaría con esa disponibilidad?                                                                                   | Categórica ordinal | `object`        | Muy insatisfecho; Insatisfecho; Ni satisfecho ni insatisfecho; Satisfecho; Muy satisfecho                               |
-| 10 | ¿Qué tan importante sería para usted que una cadena de supermercados como Supermaxi ofreciera una experiencia de compra satisfactoria en cuanto a la variedad y disponibilidad de productos? | Categórica ordinal | `object`        | Nada importante; Poco importante; Moderadamente importante; Importante; Muy importante                                  |
+| #  | Pregunta                                                                                                                                                                               | Tipo de variable   | Dtype al cargar | Opciones / escala                                                                                                       |
+|----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
+| 1  | ¿Tiene usted 18 años o más?                                                                                                                                                            | Categórica binaria | `object`        | Sí; No                                                                                                                  |
+| 2  | ¿Con qué frecuencia compra en supermercados?                                                                                                                                           | Categórica ordinal | `object`        | Varias veces por semana; Una vez por semana; De dos a tres veces al mes; Una vez al mes; Menos de una vez al mes        |
+| 3  | ¿En qué ciudad reside actualmente?                                                                                                                                                     | Categórica nominal | `object`        | Quito; Atuntaqui; Cuenca                                                                                                |
+| 4  | ¿Qué tan importante es para usted que un supermercado ofrezca una amplia variedad de productos?                                                                                        | Categórica ordinal | `object`        | Nada importante; Poco importante; Moderadamente importante; Importante; Muy importante                                  |
+| 5  | ¿Qué tan importante es para usted que los productos que busca estén disponibles cuando visita un supermercado?                                                                         | Categórica ordinal | `object`        | Nada importante; Poco importante; Moderadamente importante; Importante; Muy importante                                  |
+| 6  | ¿Con qué frecuencia encuentra disponibles los productos que busca en los supermercados que visita habitualmente?                                                                       | Categórica ordinal | `object`        | Nunca; Casi nunca; Algunas veces; Casi siempre; Siempre                                                                 |
+| 7  | ¿En qué categoría de productos encuentra con mayor frecuencia faltantes en los supermercados que visita?                                                                               | Categórica nominal | `object`        | Alimentos frescos; Productos empacados; Bebidas; Limpieza del hogar; Cuidado personal; Otra; No he encontrado faltantes |
+| 8  | Si Tía ofreciera una amplia variedad de productos, ¿qué tan satisfecho estaría con esa variedad?                                                                                       | Categórica ordinal | `object`        | Muy insatisfecho; Insatisfecho; Ni satisfecho ni insatisfecho; Satisfecho; Muy satisfecho                               |
+| 9  | Si Tía mantuviera disponibles los productos que busca, ¿qué tan satisfecho estaría con esa disponibilidad?                                                                             | Categórica ordinal | `object`        | Muy insatisfecho; Insatisfecho; Ni satisfecho ni insatisfecho; Satisfecho; Muy satisfecho                               |
+| 10 | ¿Qué tan importante sería para usted que una cadena de supermercados como Tía ofreciera una experiencia de compra satisfactoria en cuanto a la variedad y disponibilidad de productos? | Categórica ordinal | `object`        | Nada importante; Poco importante; Moderadamente importante; Importante; Muy importante                                  |
 
 Se espera que las respuestas se carguen como texto (object en pandas). Sin embargo, el tipo de dato definitivo deberá comprobarse al ejecutar el script de verificación con los datos recopilados.
 
@@ -81,10 +84,12 @@ Se espera que las respuestas se carguen como texto (object en pandas). Sin embar
 
 *Identifica 2 problemas potenciales de esta encuesta y su mitigación.*
 
-| Sesgo potencial | Mitigación |
-|-----------------|------------|
-| 1.              |            |
-| 2.              |            |
+## 5. Análisis de sesgos
+
+| Sesgo potencial                                                                                                                                                                                                                               | Mitigación                                                                                                                                                                                                                                                                                         |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **1. Sesgo de selección:** Al reclutar a los encuestados entre familiares, amigos y conocidos de los 5 integrantes en Quito, Atuntaqui y Cuenca, la muestra no es aleatoria y puede sobrerepresentar a un perfil sociodemográfico específico. | Fijar cuotas explícitas por integrante para distribuir la encuesta entre diferentes rangos de edad y asegurar que se cumpla la cuota geográfica equitativa por ciudad. Asimismo, aclarar explícitamente en el reporte que los resultados son descriptivos y no inferenciales.                      |
+| **2. Sesgo de deseabilidad social y preguntas hipotéticas:** Las preguntas 8 y 9 evalúan un escenario hipotético, esto suele llevar a los encuestados a responder de forma positiva o complaciente sin reflejar su comportamiento real.       | Redactar al inicio de esa sección un mensaje aclarando que la encuesta es totalmente **anónima** y que no existen respuestas _"correctas"_ o _"esperadas"._ Además, usar la pregunta 6 (frecuencia real de disponibilidad) para contrastar lo que el usuario experimenta frente a lo que desearía. |
 
 ## 6. Confidencialidad (RA3)
 
