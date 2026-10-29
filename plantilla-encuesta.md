@@ -16,21 +16,26 @@ Completa cada sección. Usa commits por sección; la historia del repositorio se
 
 ## 1. Objetivo de la encuesta
 
-Conocer las opiniones y expectativas de los consumidores adultos sobre la variedad y disponibilidad de productos en los supermercados, tomando a RetailAndina S.A. como un caso empresarial hipotético. Con esta información, se busca identificar posibles mejoras en el surtido y la reposición de productos que ayuden a orientar las decisiones de abastecimiento de la gerencia.
+Conocer las opiniones y expectativas de los consumidores adultos sobre la variedad y disponibilidad de productos en los supermercados, tomando a Tía como caso empresarial. Con esta información, se busca identificar posibles mejoras en el surtido y la reposición de productos que ayuden a orientar las decisiones de abastecimiento de la gerencia.
 
 ## 2. Población objetivo
 
-- **Población:** Personas de 18 años o más que compran en supermercados al menos una vez al mes y que residen en Quito, Guayaquil o Cuenca.
+- **Población:** Personas de 18 años o más que compran en supermercados al menos una vez al mes y que residen en Quito, Atuntaqui o Cuenca.
 
-- **Límites y justificación:** La encuesta está dirigida a personas adultas que compran habitualmente en supermercados, ya que pueden compartir sus experiencias y opiniones sobre la variedad y disponibilidad de los productos. Se consideran Quito, Guayaquil y Cuenca porque son las ciudades incluidas en el caso hipotético de RetailAndina S.A. <br> No participarán menores de 18 años ni personas que compren en supermercados con una frecuencia menor a una vez al mes. Además, se trabajará con personas a las que los integrantes del equipo puedan contactar durante el laboratorio y que acepten responder voluntariamente. <br>Como RetailAndina S.A. es una empresa ficticia, no será necesario que los participantes hayan comprado en sus tiendas. Las preguntas se plantearán tomando como referencia la situación hipotética de la empresa y las opiniones de los encuestados sobre la variedad y disponibilidad de productos en los supermercados.
+- **Límites y justificación:** La encuesta está dirigida a personas adultas que compran habitualmente en supermercados, ya que pueden compartir sus experiencias y opiniones sobre la variedad y disponibilidad de los productos. Se consideran Quito, Atuntaqui y Cuenca porque son las ciudades donde Tía tiene al menos una sucursal.  
+No participarán menores de 18 años ni personas que compren en supermercados con una frecuencia menor a una vez al mes. Además, se trabajará con personas a las que los integrantes del equipo puedan contactar durante el laboratorio y que acepten responder voluntariamente.  
+Las preguntas se plantearán tomando como referencia la situación actual de los mercados Tía respecto al tema de variedad y stock, y las opiniones de los encuestados sobre la variedad y disponibilidad de productos en los supermercados.
 
 ## 3. Método de muestreo
 
-- **Método:** Muestreo no probabilístico por conveniencia y referidos.
+- **Método:** Muestreo estratificado por ciudad.
 
 - **Tamaño y justificación:** El equipo se propone reunir 25 respuestas reales, con cinco participantes asignados a cada uno de los cinco integrantes. Esta cantidad está dentro del rango de 15 a 30 respuestas solicitado en el laboratorio y permitirá conocer las opiniones y expectativas de los participantes mediante un análisis descriptivo.
+Simularemos el mismo número de registros recolectados por cada estudiante, asi obtendremos 50 registros totales.
 
-- **Cómo se seleccionarán los participantes:** Cada integrante invitará a participar a familiares, amigos, compañeros u otras personas conocidas que cumplan con los requisitos establecidos. También se podrá pedir a quienes respondan la encuesta que compartan la invitación con otras personas que cumplan los mismos criterios. <br>La participación será voluntaria y cada integrante procurará conseguir cinco respuestas válidas. De esta manera, el equipo podrá alcanzar la meta propuesta utilizando los contactos disponibles.<br>Se eligió este método porque el equipo puede contactar directamente a los participantes sin necesidad de disponer de un listado completo de consumidores para seleccionarlos al azar. Sin embargo, como las personas serán elegidas por su accesibilidad y por las recomendaciones de otros participantes, es posible que sus opiniones no representen las de todos los consumidores.<br>Por esta razón, los resultados se utilizarán para describir las respuestas obtenidas, sin generalizarlos estadísticamente a toda la población.  
+- **Cómo se seleccionarán los participantes:** Cada integrante invitará a participar a familiares, amigos, compañeros u otras personas conocidas que cumplan con los requisitos establecidos. También se podrá pedir a quienes respondan la encuesta que compartan la invitación con otras personas que cumplan los mismos criterios.  
+La participación será voluntaria y cada integrante procurará conseguir cinco respuestas válidas. De esta manera, el equipo podrá alcanzar la meta propuesta utilizando los contactos disponibles.<br>Se eligió este método porque el equipo puede contactar directamente a los participantes sin necesidad de disponer de un listado completo de consumidores para seleccionarlos al azar. Sin embargo, como las personas serán elegidas por su accesibilidad y por las recomendaciones de otros participantes, es posible que sus opiniones no representen las de todos los consumidores.  
+Por esta razón, los resultados se utilizarán para describir las respuestas obtenidas, sin generalizarlos estadísticamente a toda la población.  
   
 
 - **Equivalente en código (Python):** El siguiente código permite organizar la meta de respuestas de cada integrante y comprobar cuántas respuestas se espera reunir. La selección de los participantes se realizará mediante invitaciones directas y referidos, no mediante un sorteo aleatorio..
@@ -54,7 +59,8 @@ Aun así, se deberá registrar cómo se contactó a los participantes y tener en
 
 ## 4. Cuestionario (5–10 preguntas)
 
-La encuesta presenta a RetailAndina S.A. como una cadena de supermercados hipotética. Las preguntas buscan conocer los hábitos de compra de los participantes y sus opiniones sobre la variedad y disponibilidad de productos. Por lo tanto, no es necesario que hayan comprado anteriormente en RetailAndina para responder.
+Las preguntas buscan conocer los hábitos de compra de los participantes y sus opiniones sobre la variedad y disponibilidad de productos. 
+
 
 | #  | Pregunta                                                                                                                                                                                     | Tipo de variable   | Dtype al cargar | Opciones / escala                                                                                                       |
 |----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -65,8 +71,8 @@ La encuesta presenta a RetailAndina S.A. como una cadena de supermercados hipot�
 | 5  | ¿Qué tan importante es para usted que los productos que busca estén disponibles cuando visita un supermercado?                                                                               | Categórica ordinal | `object`        | Nada importante; Poco importante; Moderadamente importante; Importante; Muy importante                                  |
 | 6  | ¿Con qué frecuencia encuentra disponibles los productos que busca en los supermercados que visita habitualmente?                                                                             | Categórica ordinal | `object`        | Nunca; Casi nunca; Algunas veces; Casi siempre; Siempre                                                                 |
 | 7  | ¿En qué categoría de productos encuentra con mayor frecuencia faltantes en los supermercados que visita?                                                                                     | Categórica nominal | `object`        | Alimentos frescos; Productos empacados; Bebidas; Limpieza del hogar; Cuidado personal; Otra; No he encontrado faltantes |
-| 8  | Si Supermaxi ofreciera una amplia variedad de productos, ¿qué tan satisfecho estaría con esa variedad?                                                                                       | Categórica ordinal | `object`        | Muy insatisfecho; Insatisfecho; Ni satisfecho ni insatisfecho; Satisfecho; Muy satisfecho                               |
-| 9  | Si Supermaxi mantuviera disponibles los productos que busca, ¿qué tan satisfecho estaría con esa disponibilidad?                                                                             | Categórica ordinal | `object`        | Muy insatisfecho; Insatisfecho; Ni satisfecho ni insatisfecho; Satisfecho; Muy satisfecho                               |
+| 8  | Si Tía ofreciera una amplia variedad de productos, ¿qué tan satisfecho estaría con esa variedad?                                                                                             | Categórica ordinal | `object`        | Muy insatisfecho; Insatisfecho; Ni satisfecho ni insatisfecho; Satisfecho; Muy satisfecho                               |
+| 9  | Si Tía mantuviera disponibles los productos que busca, ¿qué tan satisfecho estaría con esa disponibilidad?                                                                                   | Categórica ordinal | `object`        | Muy insatisfecho; Insatisfecho; Ni satisfecho ni insatisfecho; Satisfecho; Muy satisfecho                               |
 | 10 | ¿Qué tan importante sería para usted que una cadena de supermercados como Supermaxi ofreciera una experiencia de compra satisfactoria en cuanto a la variedad y disponibilidad de productos? | Categórica ordinal | `object`        | Nada importante; Poco importante; Moderadamente importante; Importante; Muy importante                                  |
 
 Se espera que las respuestas se carguen como texto (object en pandas). Sin embargo, el tipo de dato definitivo deberá comprobarse al ejecutar el script de verificación con los datos recopilados.
