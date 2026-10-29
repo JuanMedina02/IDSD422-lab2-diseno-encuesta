@@ -30,47 +30,44 @@ Conocer las opiniones y expectativas de los consumidores adultos sobre la varied
 
 - **Tamaño y justificación:** El equipo se propone reunir 25 respuestas reales, con cinco participantes asignados a cada uno de los cinco integrantes. Esta cantidad está dentro del rango de 15 a 30 respuestas solicitado en el laboratorio y permitirá conocer las opiniones y expectativas de los participantes mediante un análisis descriptivo.
 
-- **Cómo se seleccionarán los participantes:** Cada integrante invitará a participar a familiares, amigos, compañeros u otras personas conocidas que cumplan con los requisitos establecidos. También se podrá pedir a quienes respondan la encuesta que compartan la invitación con otras personas que cumplan los mismos criterios. <br>La participación será voluntaria y cada integrante procurará conseguir cinco respuestas válidas. De esta manera, el equipo podrá alcanzar la meta propuesta utilizando los contactos disponibles.<br>Se eligió este método porque el equipo puede contactar directamente a los participantes sin necesidad de disponer de un listado completo de consumidores para seleccionarlos al azar. Sin embargo, como las personas serán elegidas por su accesibilidad y por las recomendaciones de otros participantes, es posible que sus opiniones no representen las de todos los consumidores.<br>Por esta razón, los resultados se utilizarán para describir las respuestas obtenidas, sin generalizarlos estadísticamente a toda la población.
+- **Cómo se seleccionarán los participantes:** Cada integrante invitará a participar a familiares, amigos, compañeros u otras personas conocidas que cumplan con los requisitos establecidos. También se podrá pedir a quienes respondan la encuesta que compartan la invitación con otras personas que cumplan los mismos criterios. <br>La participación será voluntaria y cada integrante procurará conseguir cinco respuestas válidas. De esta manera, el equipo podrá alcanzar la meta propuesta utilizando los contactos disponibles.<br>Se eligió este método porque el equipo puede contactar directamente a los participantes sin necesidad de disponer de un listado completo de consumidores para seleccionarlos al azar. Sin embargo, como las personas serán elegidas por su accesibilidad y por las recomendaciones de otros participantes, es posible que sus opiniones no representen las de todos los consumidores.<br>Por esta razón, los resultados se utilizarán para describir las respuestas obtenidas, sin generalizarlos estadísticamente a toda la población.  
+  
 
-- **Equivalente en código (Python):** <br>El siguiente código permite organizar la meta de respuestas de cada integrante y comprobar cuántas respuestas se espera reunir. La selección de los participantes se realizará mediante invitaciones directas y referidos, no mediante un sorteo aleatorio..
+- **Equivalente en código (Python):** El siguiente código permite organizar la meta de respuestas de cada integrante y comprobar cuántas respuestas se espera reunir. La selección de los participantes se realizará mediante invitaciones directas y referidos, no mediante un sorteo aleatorio..
 
-`import pandas as pd`
+```python
+import pandas as pd
 
-`integrantes = ["Pavel", "Bryan", "Domenica", "Juan", "Matias"]`
+df = pd.read_csv("encuestados.csv")
 
-`meta = pd.DataFrame({`<br>
-   `"integrante": integrantes,`<br>
-    `"respuestas_objetivo": [5, 5, 5, 5, 5]`<br>
-`})`
+muestra = df.groupby("ciudad", group_keys=False).apply(
+    lambda x: x.sample(frac=0.2, random_state=4)
+)
 
-`print(meta)`<br>
-`print("Total de respuestas reales previstas:",
-      meta["respuestas_objetivo"].sum())`
+print(muestra)
+```
 
+**Resultado esperado:** Se mostrará una tabla con los cinco integrantes y una meta de cinco respuestas para cada uno, lo que suma un total de 25 respuestas previstas. Este resultado corresponde a la planificación del equipo y no significa que los participantes ya hayan sido seleccionados o que las respuestas se hayan recopilado.
 
-
-**Resultado esperado:**  Se mostrará una tabla con los cinco integrantes y una meta de cinco respuestas para cada uno, lo que suma un total de 25 respuestas previstas. Este resultado corresponde a la planificación del equipo y no significa que los participantes ya hayan sido seleccionados o que las respuestas se hayan recopilado.
-
-**Justificación del método:** El muestreo por conveniencia y referidos resulta práctico para el tiempo y los recursos disponibles en el laboratorio. A diferencia del muestreo aleatorio simple o estratificado, no requiere contar con un listado completo de consumidores.
-
+**Justificación del método:** El muestreo estratificado garantiza una representación proporcional e imparcial de los clientes de Quito, Cuenca y Atuntaqui, eliminando los sesgos de selección del muestreo por conveniencia y asegurando la validez estadística de las inferencias obtenidas para el proyecto.
 Aun así, se deberá registrar cómo se contactó a los participantes y tener en cuenta que los resultados pueden verse afectados por el sesgo de selección o porque algunas personas decidan no responder. Estas limitaciones se considerarán al interpretar los resultados.
 
 ## 4. Cuestionario (5–10 preguntas)
 
 La encuesta presenta a RetailAndina S.A. como una cadena de supermercados hipotética. Las preguntas buscan conocer los hábitos de compra de los participantes y sus opiniones sobre la variedad y disponibilidad de productos. Por lo tanto, no es necesario que hayan comprado anteriormente en RetailAndina para responder.
 
-| # | Pregunta | Tipo de variable | Dtype al cargar | Opciones / escala |
-|---|---|---|---|---|
-| 1 | ¿Tiene usted 18 años o más? | Categórica binaria | `object` | Sí; No |
-| 2 | ¿Con qué frecuencia compra en supermercados? | Categórica ordinal  | `object` | Varias veces por semana; Una vez por semana; De dos a tres veces al mes; Una vez al mes; Menos de una vez al mes |
-| 3 | ¿En qué ciudad reside actualmente? | Categórica nominal | `object` | Quito; Guayaquil; Cuenca |
-| 4 | ¿Qué tan importante es para usted que un supermercado ofrezca una amplia variedad de productos? | Categórica ordinal | `object` | Nada importante; Poco importante; Moderadamente importante; Importante; Muy importante |
-| 5 | ¿Qué tan importante es para usted que los productos que busca estén disponibles cuando visita un supermercado? | Categórica ordinal | `object` | Nada importante; Poco importante; Moderadamente importante; Importante; Muy importante |
-| 6 | ¿Con qué frecuencia encuentra disponibles los productos que busca en los supermercados que visita habitualmente? | Categórica ordinal | `object` | Nunca; Casi nunca; Algunas veces; Casi siempre; Siempre |
-| 7 | ¿En qué categoría de productos encuentra con mayor frecuencia faltantes en los supermercados que visita? | Categórica nominal | `object` | Alimentos frescos; Productos empacados; Bebidas; Limpieza del hogar; Cuidado personal; Otra; No he encontrado faltantes |
-| 8 | Si una cadena de supermercados como la hipotética RetailAndina ofreciera una amplia variedad de productos, ¿qué tan satisfecho estaría con esa variedad? | Categórica ordinal | `object` | Muy insatisfecho; Insatisfecho; Ni satisfecho ni insatisfecho; Satisfecho; Muy satisfecho |
-| 9 | Si una cadena de supermercados como la hipotética RetailAndina mantuviera disponibles los productos que busca, ¿qué tan satisfecho estaría con esa disponibilidad? | Categórica ordinal | `object` | Muy insatisfecho; Insatisfecho; Ni satisfecho ni insatisfecho; Satisfecho; Muy satisfecho |
-| 10 | ¿Qué tan importante sería para usted que una cadena de supermercados como RetailAndina ofreciera una experiencia de compra satisfactoria en cuanto a la variedad y disponibilidad de productos? | Categórica ordinal |`object` | Nada importante; Poco importante; Moderadamente importante; Importante; Muy importante |
+| #  | Pregunta                                                                                                                                                                                     | Tipo de variable   | Dtype al cargar | Opciones / escala                                                                                                       |
+|----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
+| 1  | ¿Tiene usted 18 años o más?                                                                                                                                                                  | Categórica binaria | `object`        | Sí; No                                                                                                                  |
+| 2  | ¿Con qué frecuencia compra en supermercados?                                                                                                                                                 | Categórica ordinal | `object`        | Varias veces por semana; Una vez por semana; De dos a tres veces al mes; Una vez al mes; Menos de una vez al mes        |
+| 3  | ¿En qué ciudad reside actualmente?                                                                                                                                                           | Categórica nominal | `object`        | Quito; Guayaquil; Cuenca                                                                                                |
+| 4  | ¿Qué tan importante es para usted que un supermercado ofrezca una amplia variedad de productos?                                                                                              | Categórica ordinal | `object`        | Nada importante; Poco importante; Moderadamente importante; Importante; Muy importante                                  |
+| 5  | ¿Qué tan importante es para usted que los productos que busca estén disponibles cuando visita un supermercado?                                                                               | Categórica ordinal | `object`        | Nada importante; Poco importante; Moderadamente importante; Importante; Muy importante                                  |
+| 6  | ¿Con qué frecuencia encuentra disponibles los productos que busca en los supermercados que visita habitualmente?                                                                             | Categórica ordinal | `object`        | Nunca; Casi nunca; Algunas veces; Casi siempre; Siempre                                                                 |
+| 7  | ¿En qué categoría de productos encuentra con mayor frecuencia faltantes en los supermercados que visita?                                                                                     | Categórica nominal | `object`        | Alimentos frescos; Productos empacados; Bebidas; Limpieza del hogar; Cuidado personal; Otra; No he encontrado faltantes |
+| 8  | Si Supermaxi ofreciera una amplia variedad de productos, ¿qué tan satisfecho estaría con esa variedad?                                                                                       | Categórica ordinal | `object`        | Muy insatisfecho; Insatisfecho; Ni satisfecho ni insatisfecho; Satisfecho; Muy satisfecho                               |
+| 9  | Si Supermaxi mantuviera disponibles los productos que busca, ¿qué tan satisfecho estaría con esa disponibilidad?                                                                             | Categórica ordinal | `object`        | Muy insatisfecho; Insatisfecho; Ni satisfecho ni insatisfecho; Satisfecho; Muy satisfecho                               |
+| 10 | ¿Qué tan importante sería para usted que una cadena de supermercados como Supermaxi ofreciera una experiencia de compra satisfactoria en cuanto a la variedad y disponibilidad de productos? | Categórica ordinal | `object`        | Nada importante; Poco importante; Moderadamente importante; Importante; Muy importante                                  |
 
 Se espera que las respuestas se carguen como texto (object en pandas). Sin embargo, el tipo de dato definitivo deberá comprobarse al ejecutar el script de verificación con los datos recopilados.
 
@@ -79,9 +76,9 @@ Se espera que las respuestas se carguen como texto (object en pandas). Sin embar
 *Identifica 2 problemas potenciales de esta encuesta y su mitigación.*
 
 | Sesgo potencial | Mitigación |
-|---|---|
-| 1. | |
-| 2. | |
+|-----------------|------------|
+| 1.              |            |
+| 2.              |            |
 
 ## 6. Confidencialidad (RA3)
 
