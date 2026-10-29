@@ -100,6 +100,20 @@ Se espera que las respuestas se carguen como texto (object en pandas). Sin embar
 
 *Escribe `scripts/verificacion_encuesta.py` (o `.R`): debe cargar `plantillas/encuesta_respuestas.csv` y reportar los tipos de cada columna, los datos faltantes por columna y la distribución de `satisfaccion_general` y `recomendaria`. Incluye la salida y responde:*
 
+
+```
+import pandas as pd
+
+archivo = "plantillas/encuesta_respuestas.csv"
+df = pd.read_csv(archivo)
+
+print("TIPOS DE DATOS POR COLUMNA")
+print(df.dtypes)
+
+print("\nDATOS FALTANTES POR COLUMNA")
+print(df.isnull().sum())
+```
+
 - ¿Coinciden los tipos con tu predicción de la sección 4?
 - ¿Cuántos datos faltantes hay por columna?
 
