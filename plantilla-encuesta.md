@@ -113,7 +113,7 @@ print(df.dtypes)
 print("\nDATOS FALTANTES POR COLUMNA")
 print(df.isnull().sum())
 ```
-
+`El código que se muestra en la parte superior es un código temporal, esto debido a que para poder contestar las preguntas debemos realizar las encuestas y comparar con la sección por lo cual es solo un ejemplo general`
 - ¿Coinciden los tipos con tu predicción de la sección 4?
 - ¿Cuántos datos faltantes hay por columna?
 
